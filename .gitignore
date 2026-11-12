@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.html
+!fps_tuner/**/*.html
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

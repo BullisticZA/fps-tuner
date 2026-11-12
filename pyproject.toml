@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fps-tuner"
+version = "1.0.0"
+description = "Scans your PC and installed games, then recommends the best graphics settings for smooth FPS."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Charl Britz" }]
+requires-python = ">=3.10"
+dependencies = ["psutil>=5.9", "rich>=13"]
+keywords = ["gaming", "fps", "graphics-settings", "pc-gaming", "optimization", "steam"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Games/Entertainment",
+    "Environment :: Console",
+]
+
+[project.urls]
+Homepage = "https://github.com/BullisticZA/fps-tuner"
+
+[project.scripts]
+fps-tuner = "fps_tuner.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+include = ["fps_tuner*"]
+
+[tool.setuptools.package-data]
+fps_tuner = ["data/*.json"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"fps_tuner/report.py" = ["E501"]  # inline CSS
+"fps_tuner/cli.py" = ["E501"]     # ASCII banner
